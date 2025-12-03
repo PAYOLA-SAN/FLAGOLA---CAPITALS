@@ -27,6 +27,7 @@ const startButton = document.getElementById("start-button");
 
 const flagImg = document.getElementById("flag-img");
 const capitalQuestion = document.getElementById("capital-question");
+const questionCounter = document.getElementById("question-counter");
 const answersContainer = document.getElementById("answers-container");
 const nextBtn = document.getElementById("next-btn");
 
@@ -34,6 +35,7 @@ const finalScore = document.getElementById("final-score");
 const scoreMessage = document.getElementById("score-message");
 const reviewList = document.getElementById("review-list");
 
+const quitBtn = document.getElementById("quit-btn");
 const restartBtn = document.getElementById("restart-btn");
 
 /*******************************************
@@ -98,9 +100,13 @@ function showQuestion() {
 
   flagImg.src = q.flag;
   capitalQuestion.textContent = `What is the capital of ${q.country}?`;
+  questionCounter.textContent = `Question ${current + 1} / ${order.length}`;
 
   answersContainer.innerHTML = "";
   nextBtn.classList.add("hidden");
+
+  const isLastQuestion = current === order.length - 1;
+  nextBtn.textContent = isLastQuestion ? "FINISH" : "NEXT";
 
   const wrongOptions = shuffle(DATA.filter(x => x.capital !== q.capital))
     .slice(0, 3)
@@ -173,8 +179,25 @@ function endQuiz() {
  *******************************************/
 restartBtn.onclick = () => {
   endScreen.classList.add("hidden");
-  startScreen.classList.remove("hidden");
+  resetToMenu();
 };
+
+quitBtn.onclick = () => {
+  quizScreen.classList.add("hidden");
+  resetToMenu();
+};
+
+function resetToMenu() {
+  startScreen.classList.remove("hidden");
+  order = [];
+  current = 0;
+  correct = 0;
+  wrong = [];
+  questionCounter.textContent = "";
+  capitalQuestion.textContent = "";
+  answersContainer.innerHTML = "";
+  nextBtn.classList.add("hidden");
+}
 
 /*******************************************
  * UTIL
