@@ -2,16 +2,16 @@
  * COUNTRY + CAPITAL DATA
  *******************************************/
 const DATA = [
-  { country: "France", capital: "Paris", flag: "flags/france.png" },
-  { country: "Germany", capital: "Berlin", flag: "flags/germany.png" },
-  { country: "Italy", capital: "Rome", flag: "flags/italy.png" },
-  { country: "Spain", capital: "Madrid", flag: "flags/spain.png" },
-  { country: "Japan", capital: "Tokyo", flag: "flags/japan.png" },
-  { country: "Brazil", capital: "Brasília", flag: "flags/brazil.png" },
-  { country: "Canada", capital: "Ottawa", flag: "flags/canada.png" },
-  { country: "Australia", capital: "Canberra", flag: "flags/australia.png" },
-  { country: "Mexico", capital: "Mexico City", flag: "flags/mexico.png" },
-  { country: "India", capital: "New Delhi", flag: "flags/india.png" }
+  { country: "France", capital: "Paris", flag: "https://flagcdn.com/w320/fr.png" },
+  { country: "Germany", capital: "Berlin", flag: "https://flagcdn.com/w320/de.png" },
+  { country: "Italy", capital: "Rome", flag: "https://flagcdn.com/w320/it.png" },
+  { country: "Spain", capital: "Madrid", flag: "https://flagcdn.com/w320/es.png" },
+  { country: "Japan", capital: "Tokyo", flag: "https://flagcdn.com/w320/jp.png" },
+  { country: "Brazil", capital: "Brasília", flag: "https://flagcdn.com/w320/br.png" },
+  { country: "Canada", capital: "Ottawa", flag: "https://flagcdn.com/w320/ca.png" },
+  { country: "Australia", capital: "Canberra", flag: "https://flagcdn.com/w320/au.png" },
+  { country: "Mexico", capital: "Mexico City", flag: "https://flagcdn.com/w320/mx.png" },
+  { country: "India", capital: "New Delhi", flag: "https://flagcdn.com/w320/in.png" }
 ];
 
 /*******************************************
