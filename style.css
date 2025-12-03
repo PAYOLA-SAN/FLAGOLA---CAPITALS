@@ -6,6 +6,13 @@ body {
   text-align: center;
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: "Press Start 2P", monospace;
+}
+
 /* hidden utility */
 .hidden {
   display: none;
