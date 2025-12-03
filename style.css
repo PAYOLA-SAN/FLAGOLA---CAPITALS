@@ -15,7 +15,7 @@ textarea {
 
 /* hidden utility */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* TITLE SCREEN */
