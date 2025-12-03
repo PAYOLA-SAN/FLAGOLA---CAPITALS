@@ -31,6 +31,9 @@ const questionCounter = document.getElementById("question-counter");
 const answersContainer = document.getElementById("answers-container");
 const nextBtn = document.getElementById("next-btn");
 
+const startSound = new Audio("start.wav");
+const clickSound = new Audio("click.mp3");
+
 const finalScore = document.getElementById("final-score");
 const scoreMessage = document.getElementById("score-message");
 const reviewList = document.getElementById("review-list");
@@ -77,6 +80,9 @@ document.querySelector('.round-btn[data-rounds="10"]').classList.add("active");
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
+  startSound.currentTime = 0;
+  startSound.play();
+
   const total = selectedRounds === "ALL"
     ? DATA.length
     : Math.min(DATA.length, parseInt(selectedRounds));
@@ -127,6 +133,9 @@ function showQuestion() {
  * ANSWER HANDLER
  *******************************************/
 function handleAnswer(choice, q) {
+  clickSound.currentTime = 0;
+  clickSound.play();
+
   const buttons = document.querySelectorAll(".answer-btn");
 
   buttons.forEach(b => {
