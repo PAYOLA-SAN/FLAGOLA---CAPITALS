@@ -229,6 +229,9 @@ const reviewList = document.getElementById("review-list");
 
 const quitBtn = document.getElementById("quit-btn");
 const restartBtn = document.getElementById("restart-btn");
+const quitModal = document.getElementById("quit-modal");
+const confirmQuitBtn = document.getElementById("confirm-quit");
+const cancelQuitBtn = document.getElementById("cancel-quit");
 
 /*******************************************
  * STATE
@@ -381,11 +384,21 @@ restartBtn.onclick = () => {
 };
 
 quitBtn.onclick = () => {
+  quitModal.classList.remove("hidden");
+};
+
+confirmQuitBtn.onclick = () => {
+  quitModal.classList.add("hidden");
   quizScreen.classList.add("hidden");
   resetToMenu();
 };
 
+cancelQuitBtn.onclick = () => {
+  quitModal.classList.add("hidden");
+};
+
 function resetToMenu() {
+  quitModal.classList.add("hidden");
   startScreen.classList.remove("hidden");
   order = [];
   current = 0;
