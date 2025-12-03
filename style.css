@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  background: #0f3aa8;
+  font-family: "Press Start 2P", monospace;
+  color: white;
+  text-align: center;
+}
+
+/* hidden utility */
+.hidden {
+  display: none;
+}
+
+/* TITLE SCREEN */
+#title-screen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #0f3aa8;
+}
+
+#game-title {
+  margin-top: 140px;
+  font-size: 64px;
+  text-shadow: 4px 4px black;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.press-any {
+  margin-top: 160px;
+  font-size: 20px;
+  animation: blink 1.8s infinite steps(2, start);
+}
+
+/* blinking */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* menu */
+.menu-title {
+  margin-top: 40px;
+  font-size: 28px;
+}
+
+.rounds-container {
+  margin-top: 50px;
+}
+
+.round-btn {
+  padding: 18px;
+  margin: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.round-btn.active {
+  background: yellow;
+  color: black;
+}
+
+.start-button {
+  margin-top: 70px;
+  padding: 22px 40px;
+  font-size: 26px;
+  animation: startPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes startPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* quiz */
+#flag-img {
+  margin-top: 40px;
+  width: 260px;
+  height: auto;
+  border: 4px solid black;
+}
+
+#capital-question {
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+.answer-btn {
+  display: block;
+  margin: 14px auto;
+  padding: 18px;
+  width: 70%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.next-btn {
+  margin-top: 32px;
+  padding: 20px 30px;
+  font-size: 20px;
+}
+
+/* end screen */
+.score-message {
+  margin-top: 20px;
+  font-size: 20px;
+}
