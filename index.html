@@ -34,38 +34,43 @@
 
   <!-- MAIN MENU / START SCREEN -->
   <div id="start-screen" class="hidden">
-    <div class="top-banner">
-      <h1 class="logo" aria-label="Flagola">
-        <span>F</span><span>L</span><span>A</span><span>G</span><span>O</span><span>L</span><span>A</span>
-      </h1>
-      <p class="subtitle">WORLD CAPITALS QUIZ</p>
-    </div>
-
-    <h2 class="menu-title">Choose Game Mode</h2>
-
-    <div class="region-filter">
-      <p class="regions-title">Regions in play</p>
-      <div class="region-options">
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Europe" checked />Europe</label>
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="South America" checked />S America</label>
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="North America" checked />N America</label>
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Asia" checked />Asia</label>
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Africa" checked />Africa</label>
-        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Oceania" checked />Oceania</label>
+    <div class="menu-card island">
+      <div class="top-banner">
+        <h1 class="logo" aria-label="Flagola">
+          <span>F</span><span>L</span><span>A</span><span>G</span><span>O</span><span>L</span><span>A</span>
+        </h1>
+        <p class="subtitle">WORLD CAPITALS QUIZ</p>
       </div>
-      <p id="countries-loaded" class="countries-loaded"></p>
-    </div>
 
-    <div class="rounds-container">
-      <button class="round-btn" data-rounds="10">10</button>
-      <button class="round-btn" data-rounds="20">20</button>
-      <button class="round-btn" data-rounds="50">50</button>
-      <button class="round-btn" data-rounds="100">100</button>
-      <button class="round-btn" data-rounds="ALL">ALL</button>
-    </div>
+      <h2 class="menu-title">Choose your settings and press start</h2>
 
-    <div class="start-container">
-      <button id="start-button" class="start-button">START</button>
+      <div class="rounds-section">
+        <p class="section-title">Number of questions</p>
+        <div class="rounds-container">
+          <button class="round-btn" data-rounds="10">10</button>
+          <button class="round-btn" data-rounds="20">20</button>
+          <button class="round-btn" data-rounds="50">50</button>
+          <button class="round-btn" data-rounds="100">100</button>
+          <button class="round-btn" data-rounds="ALL">ALL</button>
+        </div>
+      </div>
+
+      <div class="region-filter">
+        <p class="section-title regions-title">Regions in play</p>
+        <div class="region-options">
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Europe" checked />Europe</label>
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="South America" checked />S America</label>
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="North America" checked />N America</label>
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Asia" checked />Asia</label>
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Africa" checked />Africa</label>
+          <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Oceania" checked />Oceania</label>
+        </div>
+        <p id="countries-loaded" class="countries-loaded"></p>
+      </div>
+
+      <div class="start-container">
+        <button id="start-button" class="start-button">START</button>
+      </div>
     </div>
   </div>
 
@@ -78,11 +83,10 @@
       <p class="subtitle">WORLD CAPITALS QUIZ</p>
     </div>
 
-    <div class="quiz-card">
+    <div class="quiz-card island">
       <div id="quiz-header">
         <div id="question-counter"></div>
         <div id="score-display"></div>
-        <div id="quit-btn" class="quit">QUIT</div>
       </div>
 
       <div id="flag-container">
@@ -93,7 +97,10 @@
 
       <div id="answers-container"></div>
 
-      <button id="next-btn" class="hidden next-btn">NEXT</button>
+      <div class="quiz-actions">
+        <div id="quit-btn" class="quit">QUIT</div>
+        <button id="next-btn" class="next-btn" disabled>NEXT</button>
+      </div>
     </div>
   </div>
 
@@ -110,14 +117,23 @@
 
   <!-- END SCREEN -->
   <div id="end-screen" class="hidden">
-    <h2>Results</h2>
-    <p id="final-score"></p>
-    <p id="score-message" class="score-message"></p>
+    <div class="end-card island">
+      <div class="top-banner">
+        <h1 class="logo" aria-label="Flagola">
+          <span>F</span><span>L</span><span>A</span><span>G</span><span>O</span><span>L</span><span>A</span>
+        </h1>
+        <p class="subtitle">WORLD CAPITALS QUIZ</p>
+      </div>
 
-    <h3>Review</h3>
-    <div id="review-list"></div>
+      <h2>Results</h2>
+      <p id="final-score"></p>
+      <p id="score-message" class="score-message"></p>
 
-    <button id="restart-btn" class="restart-btn">PLAY AGAIN</button>
+      <h3>Review</h3>
+      <div id="review-list"></div>
+
+      <button id="restart-btn" class="restart-btn">PLAY AGAIN</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
