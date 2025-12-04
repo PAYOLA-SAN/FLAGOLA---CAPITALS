@@ -118,7 +118,7 @@ const DATA = [
   { country: "Mauritius", capital: "Port Louis", flag: flagUrl("mu") },
   { country: "Mexico", capital: "Mexico City", flag: flagUrl("mx") },
   { country: "Micronesia", capital: "Palikir", flag: flagUrl("fm") },
-  { country: "Moldova", capital: "Chișinău", flag: flagUrl("md") },
+  { country: "Moldova", capital: "Chishinau", flag: flagUrl("md") },
   { country: "Monaco", capital: "Monaco", flag: flagUrl("mc") },
   { country: "Mongolia", capital: "Ulaanbaatar", flag: flagUrl("mn") },
   { country: "Montenegro", capital: "Podgorica", flag: flagUrl("me") },
@@ -211,7 +211,7 @@ const REGIONS = [
   "North America",
   "Asia",
   "Africa",
-  "Oceania",
+  "Australasia",
 ];
 
 const REGION_SETS = {
@@ -261,7 +261,7 @@ const REGION_SETS = {
     "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda",
     "Zambia", "Zimbabwe",
   ]),
-  Oceania: new Set([
+  Australasia: new Set([
     "Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia",
     "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa",
     "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",
