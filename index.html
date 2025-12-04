@@ -34,6 +34,13 @@
 
   <!-- MAIN MENU / START SCREEN -->
   <div id="start-screen" class="hidden">
+    <div class="top-banner">
+      <h1 class="logo" aria-label="Flagola">
+        <span>F</span><span>L</span><span>A</span><span>G</span><span>O</span><span>L</span><span>A</span>
+      </h1>
+      <p class="subtitle">WORLD CAPITALS QUIZ</p>
+    </div>
+
     <h2 class="menu-title">Choose Game Mode</h2>
 
     <div class="region-filter">
@@ -64,20 +71,30 @@
 
   <!-- QUIZ SCREEN -->
   <div id="quiz-screen" class="hidden">
-    <div id="quiz-header">
-      <div id="question-counter"></div>
-      <div id="quit-btn" class="quit">QUIT</div>
+    <div class="top-banner">
+      <h1 class="logo" aria-label="Flagola">
+        <span>F</span><span>L</span><span>A</span><span>G</span><span>O</span><span>L</span><span>A</span>
+      </h1>
+      <p class="subtitle">WORLD CAPITALS QUIZ</p>
     </div>
 
-    <div id="flag-container">
-      <img id="flag-img" src="" alt="Flag" />
+    <div class="quiz-card">
+      <div id="quiz-header">
+        <div id="question-counter"></div>
+        <div id="score-display"></div>
+        <div id="quit-btn" class="quit">QUIT</div>
+      </div>
+
+      <div id="flag-container">
+        <img id="flag-img" src="" alt="Flag" />
+      </div>
+
+      <p id="capital-question"></p>
+
+      <div id="answers-container"></div>
+
+      <button id="next-btn" class="hidden next-btn">NEXT</button>
     </div>
-
-    <p id="capital-question"></p>
-
-    <div id="answers-container"></div>
-
-    <button id="next-btn" class="hidden next-btn">NEXT</button>
   </div>
 
   <!-- QUIT CONFIRMATION -->

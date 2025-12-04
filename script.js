@@ -303,6 +303,7 @@ const clickSound = new Audio("click.mp3");
 const finalScore = document.getElementById("final-score");
 const scoreMessage = document.getElementById("score-message");
 const reviewList = document.getElementById("review-list");
+const scoreDisplay = document.getElementById("score-display");
 
 const quitBtn = document.getElementById("quit-btn");
 const restartBtn = document.getElementById("restart-btn");
@@ -426,6 +427,7 @@ function startQuiz() {
   startScreen.classList.add("hidden");
   quizScreen.classList.remove("hidden");
 
+  updateScoreDisplay();
   showQuestion();
 }
 
@@ -438,6 +440,7 @@ function showQuestion() {
   flagImg.src = q.flag;
   capitalQuestion.textContent = `What is the capital of ${q.country}?`;
   questionCounter.textContent = `Question ${current + 1} / ${order.length}`;
+  updateScoreDisplay();
 
   answersContainer.innerHTML = "";
   nextBtn.classList.add("hidden");
@@ -471,13 +474,19 @@ function handleAnswer(choice, q) {
 
   buttons.forEach(b => {
     b.disabled = true;
-    if (b.textContent === q.capital) b.style.background = "green";
-    else if (b.textContent === choice) b.style.background = "red";
+    if (b.textContent === q.capital) {
+      b.style.background = "#47b36b";
+      b.style.color = "white";
+    } else if (b.textContent === choice) {
+      b.style.background = "#d2515d";
+      b.style.color = "white";
+    }
   });
 
   if (choice === q.capital) correct++;
   else wrong.push({ country: q.country, correct: q.capital, chosen: choice });
 
+  updateScoreDisplay();
   nextBtn.classList.remove("hidden");
 }
 
@@ -547,7 +556,17 @@ function resetToMenu() {
   capitalQuestion.textContent = "";
   answersContainer.innerHTML = "";
   nextBtn.classList.add("hidden");
+  scoreDisplay.textContent = "";
   updateAvailableInfo();
+}
+
+function updateScoreDisplay() {
+  if (!order.length) {
+    scoreDisplay.textContent = "";
+    return;
+  }
+
+  scoreDisplay.textContent = `Score: ${correct} / ${order.length}`;
 }
 
 /*******************************************
