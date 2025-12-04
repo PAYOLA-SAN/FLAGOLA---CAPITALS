@@ -296,18 +296,18 @@ textarea {
 
 #flag-container {
   margin-top: 24px;
-  height: var(--flag-height);
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: var(--flag-height);
 }
 
 #flag-img {
-  width: auto;
   max-width: var(--flag-width);
-  height: var(--flag-height);
-  max-height: 100%;
-  border: 4px solid #0d1d55;
+  max-height: var(--flag-height);
+  width: auto;
+  height: auto;
+  border: 5px solid black;
   object-fit: contain;
 }
 
@@ -315,6 +315,12 @@ textarea {
   margin-top: 32px;
   font-size: 18px;
   color: #0d1d55;
+  line-height: 1.6em;
+  min-height: calc(1.6em * 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .answer-btn {
