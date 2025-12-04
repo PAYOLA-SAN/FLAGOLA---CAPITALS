@@ -56,6 +56,45 @@ textarea {
   font-size: 28px;
 }
 
+.region-filter {
+  margin: 28px auto 0;
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.regions-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.region-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.region-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid black;
+  background: #0c2e86;
+}
+
+.region-toggle {
+  width: 16px;
+  height: 16px;
+  accent-color: #ffeb3b;
+}
+
+.countries-loaded {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffe24a;
+}
+
 .rounds-container {
   margin-top: 50px;
 }
@@ -72,11 +111,26 @@ textarea {
   color: black;
 }
 
+.round-btn.disabled,
+.round-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #5f6b8d;
+  color: #d9dce7;
+}
+
 .start-button {
   margin-top: 70px;
   padding: 22px 40px;
   font-size: 26px;
   animation: startPulse 2.4s infinite ease-in-out;
+}
+
+.start-button.disabled,
+.start-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: none;
 }
 
 @keyframes startPulse {
