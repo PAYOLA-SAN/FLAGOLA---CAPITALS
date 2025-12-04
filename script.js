@@ -325,13 +325,17 @@ let currentPool = COUNTRIES;
  * TITLE → MAIN MENU
  *******************************************/
 function showMainMenu() {
+  // Only transition from the title screen once. Prevents in-game key presses
+  // from re-opening the menu over the quiz content.
+  if (titleScreen.style.display === "none") return;
+
   titleScreen.style.display = "none";
   startScreen.classList.remove("hidden");
   updateAvailableInfo();
 }
 
-document.addEventListener("keydown", showMainMenu);
-titleScreen.addEventListener("click", showMainMenu);
+document.addEventListener("keydown", showMainMenu, { once: true });
+titleScreen.addEventListener("click", showMainMenu, { once: true });
 
 /*******************************************
  * ROUND SELECTION
