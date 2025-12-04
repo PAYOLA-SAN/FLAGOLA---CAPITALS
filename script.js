@@ -307,6 +307,7 @@ const scoreDisplay = document.getElementById("score-display");
 
 const quitBtn = document.getElementById("quit-btn");
 const restartBtn = document.getElementById("restart-btn");
+const mainMenuBtn = document.getElementById("main-menu-btn");
 const quitModal = document.getElementById("quit-modal");
 const confirmQuitBtn = document.getElementById("confirm-quit");
 const cancelQuitBtn = document.getElementById("cancel-quit");
@@ -462,7 +463,7 @@ function showQuestion() {
   updateScoreDisplay();
 
   answersContainer.innerHTML = "";
-  nextBtn.disabled = true;
+  setNextButtonReady(false);
 
   const isLastQuestion = current === order.length - 1;
   nextBtn.textContent = isLastQuestion ? "FINISH" : "NEXT";
@@ -506,7 +507,7 @@ function handleAnswer(choice, q) {
   else wrong.push({ country: q.country, correct: q.capital, chosen: choice });
 
   updateScoreDisplay();
-  nextBtn.disabled = false;
+  setNextButtonReady(true);
 }
 
 nextBtn.onclick = () => {
@@ -547,6 +548,11 @@ function endQuiz() {
  *******************************************/
 restartBtn.onclick = () => {
   endScreen.classList.add("hidden");
+  startQuiz();
+};
+
+mainMenuBtn.onclick = () => {
+  endScreen.classList.add("hidden");
   resetToMenu();
 };
 
@@ -574,7 +580,7 @@ function resetToMenu() {
   questionCounter.textContent = "";
   capitalQuestion.textContent = "";
   answersContainer.innerHTML = "";
-  nextBtn.disabled = true;
+  setNextButtonReady(false);
   scoreDisplay.textContent = "";
   updateAvailableInfo();
 }
@@ -586,6 +592,11 @@ function updateScoreDisplay() {
   }
 
   scoreDisplay.textContent = `Score: ${correct}`;
+}
+
+function setNextButtonReady(isReady) {
+  nextBtn.disabled = !isReady;
+  nextBtn.classList.toggle("ready", isReady);
 }
 
 /*******************************************
