@@ -54,18 +54,13 @@ textarea {
 }
 
 #pixel-map {
+  display: block;
   width: 240px;
-  height: 144px;
+  max-width: 100%;
+  height: auto;
   background: #0a2a7c;
   border: 4px solid black;
   image-rendering: pixelated;
-}
-
-#pixel-map rect {
-  fill: #8cf7b8;
-  stroke: #2bd07f;
-  stroke-width: 0.15;
-  shape-rendering: crispEdges;
 }
 
 @keyframes mapFloat {
