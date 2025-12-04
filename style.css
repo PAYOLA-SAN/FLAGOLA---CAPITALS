@@ -95,6 +95,8 @@ textarea {
 
 #quiz-screen .top-banner .subtitle {
   color: #0d1d55;
+  font-size: 16px;
+  margin-top: 4px;
 }
 
 .press-any {
@@ -167,8 +169,13 @@ textarea {
   box-shadow: 0 24px 0 #0a2d8f;
 }
 
-.quiz-card.island {
+.menu-card.island {
   padding: 32px 48px;
+}
+
+.quiz-card.island {
+  padding: 26px 48px;
+  height: 640px;
 }
 
 .menu-title {
@@ -205,6 +212,7 @@ textarea {
   padding: 10px 14px;
   border: 2px solid black;
   background: #0c2e86;
+  color: white;
 }
 
 .region-toggle {
@@ -216,7 +224,7 @@ textarea {
 .countries-loaded {
   margin-top: 12px;
   font-size: 14px;
-  color: #ffe24a;
+  color: black;
 }
 
 .rounds-container {
@@ -224,7 +232,7 @@ textarea {
 }
 
 .round-btn {
-  padding: 18px;
+  padding: 10px;
   margin: 6px;
   font-size: 20px;
   cursor: pointer;
@@ -266,23 +274,23 @@ textarea {
 /* quiz */
 .quiz-card {
   margin-top: 12px;
-  min-height: 720px;
+  min-height: 640px;
 }
 
 #quiz-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   font-size: 16px;
   color: #0d1d55;
+  width: 100%;
 }
 
-#question-counter {
-  text-align: left;
-}
-
+#question-counter,
 #score-display {
-  text-align: right;
+  text-align: left;
+  width: 100%;
 }
 
 #flag-container {
@@ -328,8 +336,8 @@ textarea {
 }
 
 .next-btn {
-  padding: 18px 26px;
-  font-size: 18px;
+  padding: 15px 22px;
+  font-size: 15px;
   background: #ff9f68;
   color: #0d1d55;
   border: 2px solid #d87b43;
