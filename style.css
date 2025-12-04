@@ -38,9 +38,40 @@ textarea {
 }
 
 .press-any {
-  margin-top: 160px;
+  margin-top: 70px;
   font-size: 20px;
   animation: blink 1.8s infinite steps(2, start);
+}
+
+.map-wrapper {
+  display: inline-block;
+  margin-top: 70px;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, #0c3fb8 0%, #0a2d8f 100%);
+  border: 4px solid black;
+  box-shadow: 0 12px 0 #081f62;
+  animation: mapFloat 4s ease-in-out infinite;
+}
+
+#pixel-map {
+  width: 240px;
+  height: 144px;
+  background: #0a2a7c;
+  border: 4px solid black;
+  image-rendering: pixelated;
+}
+
+#pixel-map rect {
+  fill: #8cf7b8;
+  stroke: #2bd07f;
+  stroke-width: 0.15;
+  shape-rendering: crispEdges;
+}
+
+@keyframes mapFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0); }
 }
 
 /* blinking */
