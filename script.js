@@ -379,17 +379,36 @@ function updateStartButtonState(total) {
 }
 
 function updateRoundButtons(total) {
-  const hundredBtn = document.querySelector('.round-btn[data-rounds="100"]');
+  roundButtons.forEach(btn => {
+    const rounds = btn.dataset.rounds;
 
-  if (hundredBtn) {
-    const tooSmall = total < 100;
-    hundredBtn.disabled = tooSmall;
-    hundredBtn.classList.toggle("disabled", tooSmall);
-
-    if (tooSmall && selectedRounds === "100") {
-      const fallback = total >= 50 ? "50" : total >= 20 ? "20" : "10";
-      setActiveRound(fallback);
+    if (rounds === "ALL") {
+      btn.disabled = false;
+      btn.classList.remove("disabled");
+      return;
     }
+
+    const value = parseInt(rounds, 10);
+    const tooSmall = total < value;
+    btn.disabled = tooSmall;
+    btn.classList.toggle("disabled", tooSmall);
+  });
+
+  const selectedValue = selectedRounds === "ALL" ? Infinity : parseInt(selectedRounds, 10);
+  const needsFallback = selectedRounds !== "ALL" && selectedValue > total;
+
+  if (needsFallback) {
+    const validNumbers = [...roundButtons]
+      .map(btn => btn.dataset.rounds)
+      .filter(v => v === "ALL" || parseInt(v, 10) <= total);
+
+    const numericOnly = validNumbers
+      .filter(v => v !== "ALL")
+      .map(v => parseInt(v, 10))
+      .sort((a, b) => b - a);
+
+    const fallback = numericOnly.length ? String(numericOnly[0]) : "ALL";
+    setActiveRound(fallback);
   }
 }
 
@@ -443,7 +462,7 @@ function showQuestion() {
   updateScoreDisplay();
 
   answersContainer.innerHTML = "";
-  nextBtn.classList.add("hidden");
+  nextBtn.disabled = true;
 
   const isLastQuestion = current === order.length - 1;
   nextBtn.textContent = isLastQuestion ? "FINISH" : "NEXT";
@@ -487,7 +506,7 @@ function handleAnswer(choice, q) {
   else wrong.push({ country: q.country, correct: q.capital, chosen: choice });
 
   updateScoreDisplay();
-  nextBtn.classList.remove("hidden");
+  nextBtn.disabled = false;
 }
 
 nextBtn.onclick = () => {
@@ -555,7 +574,7 @@ function resetToMenu() {
   questionCounter.textContent = "";
   capitalQuestion.textContent = "";
   answersContainer.innerHTML = "";
-  nextBtn.classList.add("hidden");
+  nextBtn.disabled = true;
   scoreDisplay.textContent = "";
   updateAvailableInfo();
 }
@@ -566,7 +585,7 @@ function updateScoreDisplay() {
     return;
   }
 
-  scoreDisplay.textContent = `Score: ${correct} / ${order.length}`;
+  scoreDisplay.textContent = `Score: ${correct}`;
 }
 
 /*******************************************
