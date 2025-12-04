@@ -34,6 +34,10 @@ body {
   color: #f7d51d;
 }
 
+#start-screen .logo {
+  font-size: clamp(27px, 5.5vw, 49px);
+}
+
 .logo span,
 #game-title span {
   display: inline-block;
@@ -92,6 +96,10 @@ textarea {
 
 #title-screen .subtitle {
   color: white;
+}
+
+#start-screen .subtitle {
+  font-size: calc(13px + 4pt);
 }
 
 #quiz-screen .top-banner .subtitle {
@@ -181,7 +189,7 @@ textarea {
 
 .menu-title {
   margin-top: 22px;
-  font-size: 24px;
+  font-size: calc(24px - 2pt);
 }
 
 .rounds-section {
@@ -315,13 +323,14 @@ textarea {
   max-height: var(--flag-height);
   width: auto;
   height: var(--flag-height);
-  border: 5px solid black;
+  border: none;
   object-fit: contain;
 }
 
 #capital-question {
-  margin-top: 32px;
-  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: calc(18px - 2pt);
   color: #0d1d55;
   line-height: 1.6em;
   min-height: calc(1.6em * 2);
@@ -334,9 +343,9 @@ textarea {
 .answer-btn {
   display: block;
   margin: 12px auto;
-  padding: 15px 14px;
+  padding: 12px 14px;
   width: min(calc(var(--flag-width) * 1.4), 94vw);
-  font-size: 16px;
+  font-size: calc(16px - 2pt);
   cursor: pointer;
   background: #e7ebf6;
   border: 2px solid #d0d6e8;
