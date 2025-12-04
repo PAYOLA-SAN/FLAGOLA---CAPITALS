@@ -73,6 +73,19 @@
   <div id="start-screen" class="hidden">
     <h2 class="menu-title">Choose Game Mode</h2>
 
+    <div class="region-filter">
+      <p class="regions-title">Regions in play</p>
+      <div class="region-options">
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Europe" checked />Europe</label>
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="South America" checked />S America</label>
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="North America" checked />N America</label>
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Asia" checked />Asia</label>
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Africa" checked />Africa</label>
+        <label class="region-option"><input type="checkbox" class="region-toggle" data-region="Oceania" checked />Oceania</label>
+      </div>
+      <p id="countries-loaded" class="countries-loaded"></p>
+    </div>
+
     <div class="rounds-container">
       <button class="round-btn" data-rounds="10">10</button>
       <button class="round-btn" data-rounds="20">20</button>

@@ -205,6 +205,79 @@ const DATA = [
   { country: "Zimbabwe", capital: "Harare", flag: flagUrl("zw") },
 ];
 
+const REGIONS = [
+  "Europe",
+  "South America",
+  "North America",
+  "Asia",
+  "Africa",
+  "Oceania",
+];
+
+const REGION_SETS = {
+  Europe: new Set([
+    "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus",
+    "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus",
+    "Czechia", "Denmark", "Estonia", "Finland", "France", "Georgia",
+    "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy",
+    "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
+    "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands",
+    "North Macedonia", "Norway", "Poland", "Portugal", "Romania",
+    "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain",
+    "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom",
+    "Vatican City",
+  ]),
+  "South America": new Set([
+    "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador",
+    "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela",
+  ]),
+  "North America": new Set([
+    "Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada",
+    "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador",
+    "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico",
+    "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia",
+    "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States",
+  ]),
+  Asia: new Set([
+    "Afghanistan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia",
+    "China", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan",
+    "Jordan", "Kazakhstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon",
+    "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea",
+    "Oman", "Pakistan", "Palestine", "Philippines", "Qatar",
+    "Saudi Arabia", "Singapore", "South Korea", "Sri Lanka", "Syria",
+    "Taiwan", "Tajikistan", "Thailand", "Timor-Leste", "Turkmenistan",
+    "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen",
+  ]),
+  Africa: new Set([
+    "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi",
+    "Cabo Verde", "Cameroon", "Central African Republic", "Chad",
+    "Comoros", "Congo (Democratic Republic of the)", "Congo (Republic of the)",
+    "Côte d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea",
+    "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
+    "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar",
+    "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique",
+    "Namibia", "Niger", "Nigeria", "Rwanda", "São Tomé and Príncipe",
+    "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa",
+    "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda",
+    "Zambia", "Zimbabwe",
+  ]),
+  Oceania: new Set([
+    "Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia",
+    "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa",
+    "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",
+  ]),
+};
+
+function getRegion(country) {
+  for (const [region, countries] of Object.entries(REGION_SETS)) {
+    if (countries.has(country)) return region;
+  }
+  console.warn(`Missing region for ${country}`);
+  return "Unknown";
+}
+
+const COUNTRIES = DATA.map(item => ({ ...item, region: getRegion(item.country) }));
+
 /*******************************************
  * ELEMENTS
  *******************************************/
@@ -215,6 +288,8 @@ const endScreen = document.getElementById("end-screen");
 
 const roundButtons = document.querySelectorAll(".round-btn");
 const startButton = document.getElementById("start-button");
+const regionToggles = document.querySelectorAll(".region-toggle");
+const countriesLoaded = document.getElementById("countries-loaded");
 
 const flagImg = document.getElementById("flag-img");
 const capitalQuestion = document.getElementById("capital-question");
@@ -243,6 +318,8 @@ let order = [];
 let current = 0;
 let correct = 0;
 let wrong = [];
+let selectedRegions = new Set(REGIONS);
+let currentPool = COUNTRIES;
 
 /*******************************************
  * TITLE → MAIN MENU
@@ -250,6 +327,7 @@ let wrong = [];
 function showMainMenu() {
   titleScreen.style.display = "none";
   startScreen.classList.remove("hidden");
+  updateAvailableInfo();
 }
 
 document.addEventListener("keydown", showMainMenu);
@@ -260,13 +338,63 @@ titleScreen.addEventListener("click", showMainMenu);
  *******************************************/
 roundButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    roundButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    selectedRounds = btn.dataset.rounds;
+    if (btn.disabled) return;
+    setActiveRound(btn.dataset.rounds);
   });
 });
 
-document.querySelector('.round-btn[data-rounds="10"]').classList.add("active");
+setActiveRound("10");
+
+function setActiveRound(value) {
+  selectedRounds = value;
+  roundButtons.forEach(b => b.classList.toggle("active", b.dataset.rounds === value));
+}
+
+/*******************************************
+ * REGION FILTERS
+ *******************************************/
+regionToggles.forEach(toggle => {
+  toggle.addEventListener("change", () => {
+    const region = toggle.dataset.region;
+    if (toggle.checked) selectedRegions.add(region);
+    else selectedRegions.delete(region);
+
+    updateAvailableInfo();
+  });
+});
+
+function getAvailableCountries() {
+  return COUNTRIES.filter(c => selectedRegions.has(c.region));
+}
+
+function updateStartButtonState(total) {
+  const noCountries = total === 0;
+  startButton.disabled = noCountries;
+  startButton.classList.toggle("disabled", noCountries);
+}
+
+function updateRoundButtons(total) {
+  const hundredBtn = document.querySelector('.round-btn[data-rounds="100"]');
+
+  if (hundredBtn) {
+    const tooSmall = total < 100;
+    hundredBtn.disabled = tooSmall;
+    hundredBtn.classList.toggle("disabled", tooSmall);
+
+    if (tooSmall && selectedRounds === "100") {
+      const fallback = total >= 50 ? "50" : total >= 20 ? "20" : "10";
+      setActiveRound(fallback);
+    }
+  }
+}
+
+function updateAvailableInfo() {
+  const available = getAvailableCountries();
+  currentPool = available;
+  countriesLoaded.textContent = `${available.length} countries loaded.`;
+  updateRoundButtons(available.length);
+  updateStartButtonState(available.length);
+}
 
 /*******************************************
  * START QUIZ
@@ -277,11 +405,16 @@ function startQuiz() {
   startSound.currentTime = 0;
   startSound.play();
 
-  const total = selectedRounds === "ALL"
-    ? DATA.length
-    : Math.min(DATA.length, parseInt(selectedRounds));
+  const availableCountries = getAvailableCountries();
+  currentPool = availableCountries;
 
-  order = shuffle([...DATA]).slice(0, total);
+  const total = selectedRounds === "ALL"
+    ? availableCountries.length
+    : Math.min(availableCountries.length, parseInt(selectedRounds));
+
+  if (total === 0) return;
+
+  order = shuffle([...availableCountries]).slice(0, total);
   current = 0;
   correct = 0;
   wrong = [];
@@ -308,7 +441,7 @@ function showQuestion() {
   const isLastQuestion = current === order.length - 1;
   nextBtn.textContent = isLastQuestion ? "FINISH" : "NEXT";
 
-  const wrongOptions = shuffle(DATA.filter(x => x.capital !== q.capital))
+  const wrongOptions = shuffle(currentPool.filter(x => x.capital !== q.capital))
     .slice(0, 3)
     .map(x => x.capital);
 
@@ -410,6 +543,7 @@ function resetToMenu() {
   capitalQuestion.textContent = "";
   answersContainer.innerHTML = "";
   nextBtn.classList.add("hidden");
+  updateAvailableInfo();
 }
 
 /*******************************************
@@ -422,3 +556,5 @@ function shuffle(arr) {
   }
   return arr;
 }
+
+updateAvailableInfo();
