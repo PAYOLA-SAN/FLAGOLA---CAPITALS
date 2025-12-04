@@ -211,24 +211,74 @@ textarea {
 .region-options {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .region-option {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border: 2px solid black;
-  background: #0c2e86;
+  gap: 10px;
+  padding: 14px 16px 12px;
+  border: 3px solid black;
+  background: linear-gradient(180deg, #0d3aa8 0%, #0a2d8f 100%);
   color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 0 #081f62;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
 .region-toggle {
-  width: 16px;
-  height: 16px;
-  accent-color: #ffeb3b;
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.region-box {
+  width: 22px;
+  height: 22px;
+  background: #f7d51d;
+  border: 3px solid black;
+  box-shadow: 0 6px 0 #b38d00;
+  display: grid;
+  place-items: center;
+  color: #1b1b1b;
+  font-size: 16px;
+  text-shadow: none;
+}
+
+.region-toggle:not(:checked) + .region-box {
+  background: #ffec7a;
+  box-shadow: 0 6px 0 #c7a800;
+}
+
+.region-toggle:checked + .region-box::after {
+  content: "X";
+}
+
+.region-name {
+  font-size: 14px;
+  text-shadow: 2px 2px #0a2d8f;
+  letter-spacing: 0.3px;
+}
+
+.region-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 0 #081f62;
+}
+
+.region-option:active {
+  transform: translateY(2px);
+  box-shadow: 0 6px 0 #081f62;
+}
+
+.region-toggle:focus-visible + .region-box {
+  outline: 3px solid #ffeb3b;
+  outline-offset: 3px;
 }
 
 .countries-loaded {
