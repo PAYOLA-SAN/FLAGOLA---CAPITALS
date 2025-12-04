@@ -20,6 +20,7 @@ body {
   margin-top: 28px;
 }
 
+.menu-card .top-banner,
 .quiz-card .top-banner {
   margin-top: 0;
 }
@@ -36,10 +37,6 @@ body {
   font-size: clamp(22px, 5vw, 44px);
   text-shadow: 4px 4px #2b2b2b;
   color: #f7d51d;
-}
-
-#start-screen .logo {
-  font-size: clamp(27px, 5.5vw, 49px);
 }
 
 .logo span,
@@ -102,17 +99,7 @@ textarea {
   color: white;
 }
 
-#start-screen .subtitle {
-  font-size: calc(13px + 4pt);
-}
-
-#quiz-screen .top-banner .subtitle {
-  color: #0d1d55;
-  font-size: 16px;
-  margin-top: 4px;
-}
-
-.end-card .top-banner .subtitle {
+.top-banner .subtitle {
   color: #0d1d55;
   font-size: 16px;
   margin-top: 4px;
@@ -195,6 +182,10 @@ textarea {
 .quiz-card.island {
   padding: 21px 48px 42px;
   height: 740px;
+}
+
+.quiz-card .top-banner {
+  margin-bottom: 20px;
 }
 
 .menu-title {
@@ -444,6 +435,7 @@ textarea {
   padding: 14px 18px 18px;
   border: 3px solid white;
   border-radius: 16px;
+  background: #f2f2f2;
 }
 
 .review-section h3 {
