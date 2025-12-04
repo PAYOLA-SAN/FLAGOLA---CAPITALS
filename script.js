@@ -469,7 +469,9 @@ function showQuestion() {
   const isLastQuestion = current === order.length - 1;
   nextBtn.textContent = isLastQuestion ? "FINISH" : "NEXT";
 
-  const wrongOptions = shuffle(currentPool.filter(x => x.capital !== q.capital))
+  const wrongOptions = shuffle(
+    COUNTRIES.filter(country => country.region === q.region && country.capital !== q.capital)
+  )
     .slice(0, 3)
     .map(x => x.capital);
 
