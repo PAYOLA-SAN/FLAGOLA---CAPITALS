@@ -361,8 +361,14 @@ textarea {
   border: 2px solid #d0d6e8;
   border-radius: 10px;
   color: #0d1d55;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
   box-shadow: 0 6px 0 #d0d6e8;
+}
+
+.answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #b9c1da;
+  background: #f6f8ff;
 }
 
 .answer-btn:active {
@@ -380,6 +386,12 @@ textarea {
   cursor: pointer;
   box-shadow: 0 6px 0 #9ea6ba;
   transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.next-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #9ea6ba;
+  background: #d7dde8;
 }
 
 .next-btn:active {
@@ -402,6 +414,10 @@ textarea {
   box-shadow: 0 6px 0 #0a2d8f;
 }
 
+.next-btn.ready:hover {
+  background: #1a4ecf;
+}
+
 .quiz-actions {
   margin-top: 30px;
   display: flex;
@@ -416,6 +432,12 @@ textarea {
   border-color: #2a2a2a;
   box-shadow: 0 6px 0 #2a2a2a;
   color: white;
+}
+
+.quit-btn:hover {
+  background: #4d4d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #2a2a2a;
 }
 
 .quit-btn:active {
@@ -468,7 +490,14 @@ textarea {
   border-radius: 14px;
   cursor: pointer;
   box-shadow: 0 6px 0 #0a2d8f;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.restart-btn:hover,
+.main-menu-btn:hover {
+  background: #1a4ecf;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #0a2d8f;
 }
 
 .restart-btn:active,
