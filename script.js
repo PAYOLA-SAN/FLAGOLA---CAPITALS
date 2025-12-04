@@ -302,6 +302,7 @@ const clickSound = new Audio("click.mp3");
 
 const finalScore = document.getElementById("final-score");
 const scoreMessage = document.getElementById("score-message");
+const reviewSection = document.querySelector(".review-section");
 const reviewList = document.getElementById("review-list");
 const scoreDisplay = document.getElementById("score-display");
 
@@ -527,20 +528,26 @@ function endQuiz() {
 
   if (correct === order.length) {
     scoreMessage.textContent = "Perfect!";
+    reviewSection.classList.add("hidden");
   } else if (correct / order.length >= 0.8) {
     scoreMessage.textContent = "Great work!";
+    reviewSection.classList.remove("hidden");
   } else if (correct / order.length >= 0.4) {
     scoreMessage.textContent = "Not bad!";
+    reviewSection.classList.remove("hidden");
   } else {
     scoreMessage.textContent = "Try harder!";
+    reviewSection.classList.remove("hidden");
   }
 
   reviewList.innerHTML = "";
-  wrong.forEach(item => {
-    const p = document.createElement("p");
-    p.textContent = `${item.country} → Correct: ${item.correct}, You chose: ${item.chosen}`;
-    reviewList.appendChild(p);
-  });
+  if (correct !== order.length) {
+    wrong.forEach(item => {
+      const p = document.createElement("p");
+      p.textContent = `${item.country} → Correct: ${item.correct}, You chose: ${item.chosen}`;
+      reviewList.appendChild(p);
+    });
+  }
 }
 
 /*******************************************
