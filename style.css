@@ -157,14 +157,14 @@ textarea {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 26px 12px 36px;
+  padding: 8px 12px 36px;
   gap: 10px;
 }
 
 .menu-card,
 .quiz-card,
 .end-card {
-  margin-top: 6px;
+  margin-top: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,14 +176,14 @@ textarea {
   width: 100%;
   max-width: var(--island-width);
   border-radius: 24px;
-  padding: 26px 32px;
+  padding: 18px 26px;
   border: 5px solid #d0d6e8;
   box-shadow: 0 24px 0 #0a2d8f;
   box-sizing: border-box;
 }
 
 .menu-card.island {
-  padding: 20px 28px;
+  padding: 14px 24px;
 }
 
 .quiz-card.island {
@@ -197,7 +197,7 @@ textarea {
 
 .menu-title {
   margin: 6px 0 6px;
-  font-size: calc(24px - 4pt);
+  font-size: calc(24px - 7pt);
 }
 
 .menu-section {
@@ -319,9 +319,9 @@ textarea {
 }
 
 .round-btn {
-  padding: 10px;
+  padding: 7px 9px;
   margin: 4px;
-  font-size: calc(20px - 2pt);
+  font-size: calc(20px - 5pt);
   cursor: pointer;
 }
 
@@ -340,8 +340,8 @@ textarea {
 
 .start-button {
   margin-top: 10px;
-  padding: 14px 24px;
-  font-size: 21px;
+  padding: 10px 17px;
+  font-size: 15px;
   background: #5b7dd4;
   color: black;
   border: 2px solid #4c69b5;
