@@ -305,6 +305,8 @@ const scoreMessage = document.getElementById("score-message");
 const reviewSection = document.querySelector(".review-section");
 const reviewList = document.getElementById("review-list");
 const scoreDisplay = document.getElementById("score-display");
+const endCard = document.querySelector(".end-card");
+const menuCard = document.querySelector(".menu-card");
 
 const quitBtn = document.getElementById("quit-btn");
 const restartBtn = document.getElementById("restart-btn");
@@ -323,6 +325,7 @@ let correct = 0;
 let wrong = [];
 let selectedRegions = new Set(REGIONS);
 let currentPool = COUNTRIES;
+let menuHeight = null;
 
 /*******************************************
  * TITLE → MAIN MENU
@@ -422,6 +425,37 @@ function updateAvailableInfo() {
   updateStartButtonState(available.length);
 }
 
+function cacheMenuHeight() {
+  if (!menuCard || startScreen.classList.contains("hidden")) return;
+  const { height } = menuCard.getBoundingClientRect();
+  if (height) menuHeight = height;
+}
+
+function resetEndCardSizing() {
+  if (!endCard) return;
+  endCard.classList.remove("compact-fit");
+  endCard.style.removeProperty("--menu-height");
+  endCard.style.removeProperty("--end-scale");
+}
+
+function applyPerfectEndCardHeight(isPerfect) {
+  resetEndCardSizing();
+
+  if (!isPerfect || !endCard) return;
+
+  if (!menuHeight) cacheMenuHeight();
+  if (!menuHeight) return;
+
+  requestAnimationFrame(() => {
+    const { height: endHeight } = endCard.getBoundingClientRect();
+    const scale = endHeight > menuHeight ? menuHeight / endHeight : 1;
+
+    endCard.style.setProperty("--menu-height", `${menuHeight}px`);
+    endCard.style.setProperty("--end-scale", scale);
+    endCard.classList.add("compact-fit");
+  });
+}
+
 /*******************************************
  * START QUIZ
  *******************************************/
@@ -444,6 +478,9 @@ function startQuiz() {
   current = 0;
   correct = 0;
   wrong = [];
+
+  cacheMenuHeight();
+  resetEndCardSizing();
 
   startScreen.classList.add("hidden");
   quizScreen.classList.remove("hidden");
@@ -528,7 +565,9 @@ function endQuiz() {
 
   finalScore.textContent = `${correct} / ${order.length}`;
 
-  if (correct === order.length) {
+  const isPerfect = correct === order.length;
+
+  if (isPerfect) {
     scoreMessage.textContent = "Perfect!";
     reviewSection.classList.add("hidden");
   } else if (correct / order.length >= 0.8) {
@@ -550,6 +589,8 @@ function endQuiz() {
       reviewList.appendChild(p);
     });
   }
+
+  applyPerfectEndCardHeight(isPerfect);
 }
 
 /*******************************************
@@ -557,11 +598,13 @@ function endQuiz() {
  *******************************************/
 restartBtn.onclick = () => {
   endScreen.classList.add("hidden");
+  resetEndCardSizing();
   startQuiz();
 };
 
 mainMenuBtn.onclick = () => {
   endScreen.classList.add("hidden");
+  resetEndCardSizing();
   resetToMenu();
 };
 
@@ -582,6 +625,7 @@ cancelQuitBtn.onclick = () => {
 function resetToMenu() {
   quitModal.classList.add("hidden");
   startScreen.classList.remove("hidden");
+  resetEndCardSizing();
   order = [];
   current = 0;
   correct = 0;
