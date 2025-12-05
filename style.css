@@ -1,7 +1,7 @@
 :root {
-  --island-width: min(560px, 50vw);
-  --flag-width: 420px;
-  --flag-height: 240px;
+  --island-width: min(680px, 94vw);
+  --flag-width: min(420px, 90vw);
+  --flag-height: min(260px, 55vh);
 }
 
 body {
@@ -10,6 +10,11 @@ body {
   font-family: "Press Start 2P", monospace;
   color: white;
   text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .top-banner {
@@ -168,11 +173,13 @@ textarea {
 .island {
   background: #e1e1e1;
   color: #11193d;
-  width: var(--island-width);
+  width: 100%;
+  max-width: var(--island-width);
   border-radius: 24px;
   padding: 36px 44px;
   border: 5px solid #d0d6e8;
   box-shadow: 0 24px 0 #0a2d8f;
+  box-sizing: border-box;
 }
 
 .menu-card.island {
@@ -181,7 +188,7 @@ textarea {
 
 .quiz-card.island {
   padding: 21px 48px 42px;
-  height: 740px;
+  min-height: 0;
 }
 
 .quiz-card .top-banner {
@@ -375,7 +382,7 @@ textarea {
 /* quiz */
 .quiz-card {
   margin-top: 12px;
-  min-height: 684px;
+  min-height: 0;
 }
 
 #quiz-header {
@@ -411,10 +418,9 @@ textarea {
 }
 
 #flag-img {
+  width: 100%;
   max-width: var(--flag-width);
   max-height: var(--flag-height);
-  width: auto;
-  height: var(--flag-height);
   border: none;
   object-fit: contain;
 }
@@ -605,7 +611,7 @@ textarea {
   background: #0f3aa8;
   border: 4px solid black;
   padding: 28px 36px;
-  width: 320px;
+  width: min(360px, 90vw);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -625,4 +631,115 @@ textarea {
   padding: 14px 0;
   font-size: 16px;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --island-width: 100vw;
+    --flag-width: 100vw;
+    --flag-height: min(220px, 45vh);
+  }
+
+  #title-screen {
+    position: relative;
+    min-height: 100vh;
+    padding: 32px 18px 60px;
+    box-sizing: border-box;
+  }
+
+  #game-title {
+    margin-top: 90px;
+  }
+
+  .map-wrapper {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 36px;
+    padding: 16px 18px;
+    box-sizing: border-box;
+  }
+
+  .top-banner {
+    margin-top: 16px;
+  }
+
+  .top-banner .subtitle {
+    font-size: 14px;
+  }
+
+  #start-screen,
+  #quiz-screen,
+  #end-screen {
+    padding: 28px 12px 44px;
+  }
+
+  .island {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .menu-card.island {
+    padding: 20px 18px;
+  }
+
+  .quiz-card.island {
+    padding: 18px 18px 28px;
+  }
+
+  .menu-section {
+    padding: 12px 14px;
+  }
+
+  .region-filter {
+    padding: 14px 14px 16px;
+  }
+
+  .region-options {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-title {
+    font-size: 18px;
+  }
+
+  .section-title,
+  .region-name,
+  .round-btn,
+  .press-any {
+    font-size: 14px;
+  }
+
+  #quiz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  #capital-question {
+    font-size: 15px;
+  }
+
+  .answer-btn {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .quiz-actions {
+    flex-direction: column;
+  }
+
+  .quiz-actions .next-btn,
+  .quiz-actions .quit-btn,
+  .restart-btn,
+  .main-menu-btn,
+  .start-button {
+    width: 100%;
+  }
+
+  .end-actions {
+    flex-direction: column;
+    width: 100%;
+  }
 }
