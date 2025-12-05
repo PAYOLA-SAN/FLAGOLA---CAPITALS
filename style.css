@@ -1,5 +1,5 @@
 :root {
-  --island-width: min(648px, 58vw);
+  --island-width: min(600px, 54vw);
   --flag-width: 420px;
   --flag-height: 240px;
 }
@@ -170,13 +170,13 @@ textarea {
   color: #11193d;
   width: var(--island-width);
   border-radius: 24px;
-  padding: 40px 48px;
+  padding: 36px 44px;
   border: 5px solid #d0d6e8;
   box-shadow: 0 24px 0 #0a2d8f;
 }
 
 .menu-card.island {
-  padding: 32px 48px;
+  padding: 28px 42px;
 }
 
 .quiz-card.island {
@@ -189,7 +189,7 @@ textarea {
 }
 
 .menu-title {
-  margin-top: 22px;
+  margin-top: 12px;
   font-size: calc(24px - 2pt);
 }
 
@@ -202,7 +202,7 @@ textarea {
 }
 
 .rounds-section {
-  margin: 28px auto 0;
+  margin: 14px auto 0;
 }
 
 .section-title {
@@ -211,7 +211,7 @@ textarea {
 }
 
 .region-filter {
-  margin: 32px auto 0;
+  margin: 16px auto 0;
   max-width: 840px;
   padding: 22px 24px 24px;
 }
@@ -329,7 +329,7 @@ textarea {
 }
 
 .start-button {
-  margin-top: 56px;
+  margin-top: 28px;
   padding: 22px 40px;
   font-size: 26px;
   background: #c5ccdb;
