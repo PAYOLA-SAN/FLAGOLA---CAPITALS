@@ -276,8 +276,9 @@ textarea {
 }
 
 .region-toggle:checked + .region-box::after {
-  content: "✓";
+  content: "X";
   display: block;
+  font-weight: 700;
 }
 
 .region-name {
