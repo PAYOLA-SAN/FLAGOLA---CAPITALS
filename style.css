@@ -252,11 +252,16 @@ textarea {
   text-shadow: none;
   box-sizing: border-box;
   flex: 0 0 22px;
+  transition: background-color 0.18s ease;
 }
 
 .region-toggle:not(:checked) + .region-box {
   background: #ffec7a;
   box-shadow: none;
+}
+
+.region-option:hover .region-box {
+  background: #ffe45c;
 }
 
 .region-toggle:checked + .region-box::after {
