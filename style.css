@@ -538,6 +538,15 @@ textarea {
   font-size: 20px;
 }
 
+.end-card.compact-fit {
+  height: var(--menu-height);
+  max-height: var(--menu-height);
+  gap: 10px;
+  overflow: hidden;
+  transform-origin: top center;
+  transform: scaleY(var(--end-scale, 1));
+}
+
 #review-list {
   text-align: left;
   margin-top: 16px;
