@@ -313,13 +313,34 @@ textarea {
   margin-top: 56px;
   padding: 22px 40px;
   font-size: 26px;
-  animation: startPulse 2.4s infinite ease-in-out;
+  background: #c5ccdb;
+  color: white;
+  border: 2px solid #9ea6ba;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #9ea6ba;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.start-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #9ea6ba;
+  background: #d7dde8;
+}
+
+.start-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #0a2d8f;
 }
 
 .start-button.disabled,
 .start-button:disabled {
-  opacity: 0.6;
   cursor: not-allowed;
+  background: #c5ccdb;
+  color: white;
+  border: 2px solid #9ea6ba;
+  box-shadow: 0 6px 0 #9ea6ba;
+  transform: none;
   animation: none;
 }
 
