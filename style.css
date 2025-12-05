@@ -240,15 +240,18 @@ textarea {
 }
 
 .region-box {
+  position: relative;
   width: 22px;
   height: 22px;
   background: #f7d51d;
   border: 3px solid black;
   box-shadow: none;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #1b1b1b;
   font-size: 16px;
+  line-height: 1;
   text-shadow: none;
   box-sizing: border-box;
   flex: 0 0 22px;
@@ -260,7 +263,8 @@ textarea {
 }
 
 .region-toggle:checked + .region-box::after {
-  content: "X";
+  content: "✓";
+  display: block;
 }
 
 .region-name {
