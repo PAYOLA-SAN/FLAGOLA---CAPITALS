@@ -17,7 +17,7 @@ const DATA = [
   { country: "Australia", capital: "Canberra", flag: flagUrl("au") },
   { country: "Austria", capital: "Vienna", flag: flagUrl("at") },
   { country: "Azerbaijan", capital: "Baku", flag: flagUrl("az") },
-  { country: "Bahamas", capital: "Nassau", flag: flagUrl("bs") },
+  { country: "the Bahamas", capital: "Nassau", flag: flagUrl("bs") },
   { country: "Bahrain", capital: "Manama", flag: flagUrl("bh") },
   { country: "Bangladesh", capital: "Dhaka", flag: flagUrl("bd") },
   { country: "Barbados", capital: "Bridgetown", flag: flagUrl("bb") },
@@ -44,8 +44,8 @@ const DATA = [
   { country: "China", capital: "Beijing", flag: flagUrl("cn") },
   { country: "Colombia", capital: "Bogotá", flag: flagUrl("co") },
   { country: "Comoros", capital: "Moroni", flag: flagUrl("km") },
-  { country: "Congo (Democratic Republic of the)", capital: "Kinshasa", flag: flagUrl("cd") },
-  { country: "Congo (Republic of the)", capital: "Brazzaville", flag: flagUrl("cg") },
+  { country: "D.R. Congo", capital: "Kinshasa", flag: flagUrl("cd") },
+  { country: "Republic of the Congo", capital: "Brazzaville", flag: flagUrl("cg") },
   { country: "Costa Rica", capital: "San José", flag: flagUrl("cr") },
   { country: "Côte d'Ivoire", capital: "Yamoussoukro", flag: flagUrl("ci") },
   { country: "Croatia", capital: "Zagreb", flag: flagUrl("hr") },
@@ -55,7 +55,7 @@ const DATA = [
   { country: "Denmark", capital: "Copenhagen", flag: flagUrl("dk") },
   { country: "Djibouti", capital: "Djibouti", flag: flagUrl("dj") },
   { country: "Dominica", capital: "Roseau", flag: flagUrl("dm") },
-  { country: "Dominican Republic", capital: "Santo Domingo", flag: flagUrl("do") },
+  { country: "the Dominican Republic", capital: "Santo Domingo", flag: flagUrl("do") },
   { country: "Ecuador", capital: "Quito", flag: flagUrl("ec") },
   { country: "Egypt", capital: "Cairo", flag: flagUrl("eg") },
   { country: "El Salvador", capital: "San Salvador", flag: flagUrl("sv") },
@@ -68,7 +68,7 @@ const DATA = [
   { country: "Finland", capital: "Helsinki", flag: flagUrl("fi") },
   { country: "France", capital: "Paris", flag: flagUrl("fr") },
   { country: "Gabon", capital: "Libreville", flag: flagUrl("ga") },
-  { country: "Gambia", capital: "Banjul", flag: flagUrl("gm") },
+  { country: "the Gambia", capital: "Banjul", flag: flagUrl("gm") },
   { country: "Georgia", capital: "Tbilisi", flag: flagUrl("ge") },
   { country: "Germany", capital: "Berlin", flag: flagUrl("de") },
   { country: "Ghana", capital: "Accra", flag: flagUrl("gh") },
@@ -110,10 +110,10 @@ const DATA = [
   { country: "Madagascar", capital: "Antananarivo", flag: flagUrl("mg") },
   { country: "Malawi", capital: "Lilongwe", flag: flagUrl("mw") },
   { country: "Malaysia", capital: "Kuala Lumpur", flag: flagUrl("my") },
-  { country: "Maldives", capital: "Malé", flag: flagUrl("mv") },
+  { country: "the Maldives", capital: "Malé", flag: flagUrl("mv") },
   { country: "Mali", capital: "Bamako", flag: flagUrl("ml") },
   { country: "Malta", capital: "Valletta", flag: flagUrl("mt") },
-  { country: "Marshall Islands", capital: "Majuro", flag: flagUrl("mh") },
+  { country: "the Marshall Islands", capital: "Majuro", flag: flagUrl("mh") },
   { country: "Mauritania", capital: "Nouakchott", flag: flagUrl("mr") },
   { country: "Mauritius", capital: "Port Louis", flag: flagUrl("mu") },
   { country: "Mexico", capital: "Mexico City", flag: flagUrl("mx") },
@@ -128,7 +128,7 @@ const DATA = [
   { country: "Namibia", capital: "Windhoek", flag: flagUrl("na") },
   { country: "Nauru", capital: "Yaren District", flag: flagUrl("nr") },
   { country: "Nepal", capital: "Kathmandu", flag: flagUrl("np") },
-  { country: "Netherlands", capital: "Amsterdam", flag: flagUrl("nl") },
+  { country: "the Netherlands", capital: "Amsterdam", flag: flagUrl("nl") },
   { country: "New Zealand", capital: "Wellington", flag: flagUrl("nz") },
   { country: "Nicaragua", capital: "Managua", flag: flagUrl("ni") },
   { country: "Niger", capital: "Niamey", flag: flagUrl("ne") },
@@ -160,7 +160,7 @@ const DATA = [
   { country: "Saudi Arabia", capital: "Riyadh", flag: flagUrl("sa") },
   { country: "Senegal", capital: "Dakar", flag: flagUrl("sn") },
   { country: "Serbia", capital: "Belgrade", flag: flagUrl("rs") },
-  { country: "Seychelles", capital: "Victoria", flag: flagUrl("sc") },
+  { country: "the Seychelles", capital: "Victoria", flag: flagUrl("sc") },
   { country: "Sierra Leone", capital: "Freetown", flag: flagUrl("sl") },
   { country: "Singapore", capital: "Singapore", flag: flagUrl("sg") },
   { country: "Slovakia", capital: "Bratislava", flag: flagUrl("sk") },
@@ -191,9 +191,9 @@ const DATA = [
   { country: "Tuvalu", capital: "Funafuti", flag: flagUrl("tv") },
   { country: "Uganda", capital: "Kampala", flag: flagUrl("ug") },
   { country: "Ukraine", capital: "Kyiv", flag: flagUrl("ua") },
-  { country: "United Arab Emirates", capital: "Abu Dhabi", flag: flagUrl("ae") },
-  { country: "United Kingdom", capital: "London", flag: flagUrl("gb") },
-  { country: "United States", capital: "Washington, D.C.", flag: flagUrl("us") },
+  { country: "the United Arab Emirates", capital: "Abu Dhabi", flag: flagUrl("ae") },
+  { country: "the United Kingdom", capital: "London", flag: flagUrl("gb") },
+  { country: "the United States", capital: "Washington, D.C.", flag: flagUrl("us") },
   { country: "Uruguay", capital: "Montevideo", flag: flagUrl("uy") },
   { country: "Uzbekistan", capital: "Tashkent", flag: flagUrl("uz") },
   { country: "Vanuatu", capital: "Port Vila", flag: flagUrl("vu") },
@@ -221,10 +221,10 @@ const REGION_SETS = {
     "Czechia", "Denmark", "Estonia", "Finland", "France", "Georgia",
     "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy",
     "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
-    "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands",
+    "Malta", "Moldova", "Monaco", "Montenegro", "the Netherlands",
     "North Macedonia", "Norway", "Poland", "Portugal", "Romania",
     "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain",
-    "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom",
+    "Sweden", "Switzerland", "Turkey", "Ukraine", "the United Kingdom",
     "Vatican City",
   ]),
   "South America": new Set([
@@ -232,37 +232,37 @@ const REGION_SETS = {
     "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela",
   ]),
   "North America": new Set([
-    "Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada",
-    "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador",
+    "Antigua and Barbuda", "the Bahamas", "Barbados", "Belize", "Canada",
+    "Costa Rica", "Cuba", "Dominica", "the Dominican Republic", "El Salvador",
     "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico",
     "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia",
-    "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States",
+    "Saint Vincent and the Grenadines", "Trinidad and Tobago", "the United States",
   ]),
   Asia: new Set([
     "Afghanistan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia",
     "China", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan",
     "Jordan", "Kazakhstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon",
-    "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea",
+    "Malaysia", "the Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea",
     "Oman", "Pakistan", "Palestine", "Philippines", "Qatar",
     "Saudi Arabia", "Singapore", "South Korea", "Sri Lanka", "Syria",
     "Taiwan", "Tajikistan", "Thailand", "Timor-Leste", "Turkmenistan",
-    "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen",
+    "the United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen",
   ]),
   Africa: new Set([
     "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi",
     "Cabo Verde", "Cameroon", "Central African Republic", "Chad",
-    "Comoros", "Congo (Democratic Republic of the)", "Congo (Republic of the)",
+    "Comoros", "D.R. Congo", "Republic of the Congo",
     "Côte d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea",
-    "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
+    "Eswatini", "Ethiopia", "Gabon", "the Gambia", "Ghana", "Guinea",
     "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar",
     "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique",
     "Namibia", "Niger", "Nigeria", "Rwanda", "São Tomé and Príncipe",
-    "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa",
+    "Senegal", "the Seychelles", "Sierra Leone", "Somalia", "South Africa",
     "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda",
     "Zambia", "Zimbabwe",
   ]),
   Australasia: new Set([
-    "Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia",
+    "Australia", "Fiji", "Kiribati", "the Marshall Islands", "Micronesia",
     "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa",
     "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",
   ]),
@@ -496,7 +496,7 @@ function showQuestion() {
   const q = order[current];
 
   flagImg.src = q.flag;
-  capitalQuestion.textContent = `What is the capital of ${q.country}?`;
+  capitalQuestion.innerHTML = `What is the capital of <span class="country-name">${q.country}</span>?`;
   questionCounter.textContent = `Question ${current + 1} / ${order.length}`;
   updateScoreDisplay();
 
@@ -631,7 +631,7 @@ function resetToMenu() {
   correct = 0;
   wrong = [];
   questionCounter.textContent = "";
-  capitalQuestion.textContent = "";
+  capitalQuestion.innerHTML = "";
   answersContainer.innerHTML = "";
   setNextButtonReady(false);
   scoreDisplay.textContent = "";

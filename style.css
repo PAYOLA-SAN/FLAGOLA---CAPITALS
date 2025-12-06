@@ -442,6 +442,11 @@ textarea {
   text-align: center;
 }
 
+.country-name {
+  color: #d4af37;
+  font-weight: 700;
+}
+
 .answer-btn {
   display: block;
   margin: 6px auto;
