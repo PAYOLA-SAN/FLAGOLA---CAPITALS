@@ -165,7 +165,7 @@ const DATA = [
   { country: "Singapore", capital: "Singapore", flag: flagUrl("sg") },
   { country: "Slovakia", capital: "Bratislava", flag: flagUrl("sk") },
   { country: "Slovenia", capital: "Ljubljana", flag: flagUrl("si") },
-  { country: "Solomon Islands", capital: "Honiara", flag: flagUrl("sb") },
+  { country: "the Solomon Islands", capital: "Honiara", flag: flagUrl("sb") },
   { country: "Somalia", capital: "Mogadishu", flag: flagUrl("so") },
   { country: "South Africa", capital: "Pretoria", flag: flagUrl("za") },
   { country: "South Korea", capital: "Seoul", flag: flagUrl("kr") },
@@ -264,7 +264,7 @@ const REGION_SETS = {
   Australasia: new Set([
     "Australia", "Fiji", "Kiribati", "the Marshall Islands", "Micronesia",
     "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa",
-    "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",
+    "the Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",
   ]),
 };
 
