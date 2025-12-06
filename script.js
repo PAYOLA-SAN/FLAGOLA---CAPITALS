@@ -496,7 +496,7 @@ function showQuestion() {
   const q = order[current];
 
   flagImg.src = q.flag;
-  capitalQuestion.innerHTML = `What is the capital of <span class="country-name">${q.country}</span>?`;
+  capitalQuestion.innerHTML = `What is the capital of&nbsp;<span class="country-name">${q.country}</span>?`;
   questionCounter.textContent = `Question ${current + 1} / ${order.length}`;
   updateScoreDisplay();
 
