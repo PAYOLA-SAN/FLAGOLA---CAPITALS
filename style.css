@@ -1,7 +1,7 @@
 :root {
   --island-width: min(650px, 94vw);
-  --flag-width: min(360px, 90vw);
-  --flag-height: min(180px, 32vh);
+  --flag-width: min(252px, 63vw);
+  --flag-height: min(126px, 22.4vh);
 }
 
 body {
@@ -176,18 +176,18 @@ textarea {
   width: 100%;
   max-width: var(--island-width);
   border-radius: 24px;
-  padding: 18px 26px;
+  padding: 13px 18px;
   border: 5px solid #d0d6e8;
   box-shadow: 0 24px 0 #0a2d8f;
   box-sizing: border-box;
 }
 
 .menu-card.island {
-  padding: 14px 24px;
+  padding: 10px 17px;
 }
 
 .quiz-card.island {
-  padding: 16px 24px 22px;
+  padding: 11px 17px 15px;
   min-height: 0;
 }
 
@@ -645,8 +645,8 @@ textarea {
 @media (max-width: 600px) {
   :root {
     --island-width: 100vw;
-    --flag-width: 100vw;
-    --flag-height: min(180px, 36vh);
+    --flag-width: 70vw;
+    --flag-height: min(126px, 25.2vh);
   }
 
   #title-screen {
@@ -683,16 +683,16 @@ textarea {
   }
 
   .island {
-    padding: 24px 20px;
+    padding: 17px 14px;
     border-radius: 18px;
   }
 
   .menu-card.island {
-    padding: 20px 18px;
+    padding: 14px 13px;
   }
 
   .quiz-card.island {
-    padding: 16px 16px 24px;
+    padding: 11px 11px 17px;
   }
 
   .menu-section {
