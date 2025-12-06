@@ -553,9 +553,14 @@ textarea {
 }
 
 /* end screen */
+.end-card h2 {
+  margin: 8px 0 4px;
+  font-size: calc(24px - 3pt);
+}
+
 .score-message {
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 7px;
+  font-size: calc(20px - 3pt);
 }
 
 .end-card.compact-fit {
@@ -574,7 +579,8 @@ textarea {
 }
 
 #final-score {
-  font-size: calc(24px + 2pt);
+  margin: 4px 0 6px;
+  font-size: calc(24px - 1pt);
 }
 
 .review-section {
